@@ -2,15 +2,46 @@
   <div class="team">
       <h1 class="grey--text">Team</h1>
 
-      <v-container class="my-5 text-justify">
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore quo eos alias illum quasi saepe incidunt repellendus voluptates nesciunt, amet eum quod tenetur, nobis error iste deserunt pariatur! Dolores, quaerat.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, natus vel. Repellendus accusantium doloribus beatae impedit! Fugiat quaerat fugit, dicta perspiciatis saepe delectus possimus id ea quasi deserunt illo praesentium!</p>
+      <v-container class="my-5">
+        <v-layout row wrap>
+          <v-flex xs12 sm6 md4 lg3 v-for="person in team" :key="person.name">
+            <v-card class="text-center ma-3">
+              <v-responsive class="pa-2">
+                <v-avatar size="100" class="grey lighten-2">
+                  <img :src="person.avatar" alt="avatar">
+                </v-avatar>
+              </v-responsive>
+
+              <v-card-text>
+                <div class="subheading">{{person.name}}</div>
+                <div class="grey--text">{{person.role}}</div>
+              </v-card-text>
+
+              <v-card-action>
+                <v-btn text color="grey">
+                  <v-icon small left>message</v-icon>
+                  <span>Message</span>
+                </v-btn>
+              </v-card-action>
+            </v-card>
+          </v-flex>
+        </v-layout>
     </v-container>
   </div>
 </template>
 
 <script>
 export default {
-
+  data() {
+    return {
+      team: [
+        { name: 'The Net Ninja', role: 'Web developer', avatar: '/avatar-1.png' },
+        { name: 'Ryu', role: 'Graphic designer', avatar: '/avatar-2.png' },
+        { name: 'Chun Li', role: 'Web developer', avatar: '/avatar-3.png' },
+        { name: 'Gouken', role: 'Social media maverick', avatar: '/avatar-4.png' },
+        { name: 'Yoshi', role: 'Sales guru', avatar: '/avatar-5.png'}
+      ]
+    }
+  }
 };
 </script>

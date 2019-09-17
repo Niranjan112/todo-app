@@ -16,6 +16,14 @@
         </v-toolbar>
 
         <v-navigation-drawer app v-model="drawer" class="grey lighten-3" temporary>
+            <v-layout column align-center>
+                <v-flex class="mt-5">
+                    <v-avatar size="100">
+                        <img src="/avatar-1.png" alt="avatar">
+                    </v-avatar>
+                    <p color="grey subheading mt-1">Niranjan Sharma</p>
+                </v-flex>
+            </v-layout>
             <v-list>
                 <v-list-item v-for="link in links" :key="link.text" router :to="link.route" link>
                     <v-list-item-icon>
