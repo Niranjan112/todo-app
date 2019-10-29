@@ -22,6 +22,18 @@
                         </template>
                         <v-date-picker v-model="due"></v-date-picker>     
                     </v-menu>
+
+                    <v-text-field label="Person Name" v-model="personName" 
+                    prepend-icon="person" :rules="inputRules"></v-text-field>
+
+                    <v-select
+                    v-model="status"
+                    :items="items"
+                    :rules="[v => !!v || 'Status is required']"
+                    prepend-icon="notes"
+                    label="Status"
+                    required
+                    ></v-select>
                     <div class="text-center">
                         <v-btn text class="success" @click="submit" :loading="loading">Add Project</v-btn>
                     </div>
@@ -40,6 +52,9 @@ export default {
             title: '',
             content: '',
             due: null,
+            personName: '',
+            status: null,
+            items: ['complete','ongoing'],
             inputRules: [
                 v => v.length >= 3 || 'Atleast insert 3 characters'
             ],
@@ -55,8 +70,8 @@ export default {
                     title: this.title,
                     content: this.content,
                     due: format(new Date(this.due), 'do MMM yyyy'),
-                    person: 'Niranjan Sharma',
-                    status: 'ongoing'
+                    person: this.personName,
+                    status: this.status
                 }
                 db.collection('projects').add(project).then(() => {
                     this.loading = false;

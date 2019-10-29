@@ -42,6 +42,7 @@
           </v-flex>
 
           <v-flex xs2 sm4 md2>
+            <div class="caption grey--text">Status</div>
             <div class="text-center">
               <v-chip small
               v-if="project.status == 'complete'"
@@ -49,14 +50,9 @@
               :style="{backgroundColor:'#3CD1C2'}">{{ project.status }}</v-chip>
 
               <v-chip small
-              v-else-if="project.status == 'ongoing'"
+              v-if="project.status == 'ongoing'"
               :class="`${project.status} white--text my-2 caption`" 
               :style="{backgroundColor:'orange'}">{{ project.status }}</v-chip>
-
-              <v-chip small
-              v-else
-              :class="`${project.status} white--text my-2 caption`" 
-              :style="{backgroundColor:'tomato'}">{{ project.status }}</v-chip>
             </div>
           </v-flex>
         </v-layout>
