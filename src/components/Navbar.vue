@@ -28,11 +28,6 @@
                     </v-list-item>
                 </v-list>
             </v-menu>
-
-            <v-btn text color="grey">
-                <span>Exit</span>
-                <v-icon right>exit_to_app</v-icon>
-            </v-btn>
         </v-toolbar>
 
         <v-navigation-drawer app v-model="drawer" class="grey lighten-3" temporary>
